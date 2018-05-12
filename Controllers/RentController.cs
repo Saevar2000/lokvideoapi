@@ -3,24 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace lokvideoapi.Controllers
 {
     [Route("api/[controller]")]
     public class RentController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
+        // GET api/Rent/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Movie GetMovieById(int id)
         {
-            return "value";
+            return GetMovieById(id);
         }
 
         // POST api/values
