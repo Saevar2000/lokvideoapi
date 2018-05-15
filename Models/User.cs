@@ -5,6 +5,7 @@ namespace Models
     public class User
     {
         public int Id { get; set; }
-        public List<Movie> Movies { get; set; }
+        //public string Tada { get; set; }
+        //public List<Movie> Movies { get; set; }
     }
 }

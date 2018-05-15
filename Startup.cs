@@ -26,7 +26,7 @@ namespace lokvideoapi
         {
             //services.AddDbContext<WebAPIDataContext>(options =>
             //    options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddEntityFrameworkNpgsql().AddDbContext<WebAPIDataContext>(options => 
+            services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options => 
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc();
         }

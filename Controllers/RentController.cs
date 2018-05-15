@@ -10,18 +10,43 @@ namespace lokvideoapi.Controllers
     [Route("api/[controller]")]
     public class RentController : Controller
     {
-        // GET api/Rent/5
+        private readonly ApplicationDbContext _context;
+
+        public RentController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        // Get api/rent
+        [HttpPost]
+        public Movie Post()
+        {
+            Movie movie = new Movie
+            {
+                Stars = 5,
+                Review = "haha"
+            };
+
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+
+            return movie;
+        }
+
+        // GET api/rent/5
         [HttpGet("{id}")]
         public Movie GetMovieById(int id)
         {
-            return GetMovieById(id);
+            return _context.Movies.FirstOrDefault(
+                x => x.Id == id
+            );
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
+        // // POST api/values
+        // [HttpPost]
+        // public void Post([FromBody]string value)
+        // {
+        // }
 
         // PUT api/values/5
         [HttpPut("{id}")]
